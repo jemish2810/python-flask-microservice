@@ -1,0 +1,11 @@
+docker network create micro_network
+
+docker-compose -f frontend/docker-compose.deploy.yml build
+
+docker-compose -f frontend/docker-compose.deploy.yml up -d
+
+chmod +x prepare-databases.sh
+./prepare-databases.sh 
+
+chmod +x terminate-process.sh
+./terminate-process.sh
